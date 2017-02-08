@@ -63,7 +63,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/song-one',function(req,res){
-   res.send(createtemplate(song1))
+   res.send(createtemplate(song1));
 });
 
 app.get('/song-two',function(req,res){
