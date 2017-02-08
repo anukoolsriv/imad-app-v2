@@ -6,9 +6,9 @@ var app = express();
 app.use(morgan('combined'));
 
 var song1 = {
-    title: 'Song-one'
-    heading: 'Song-one'
-    date: '8/2/2017'
+    title: 'Song-one',
+    heading: 'Song-one',
+    date: '8/2/2017',
     content: `  <p> 
                     When my time comes
                     Forget the wrong that I've done
