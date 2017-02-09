@@ -78,7 +78,7 @@ var htmltemplate=`<html>
         <div class="container">
             <div>
                 <a href="/">Home</a>
-                <a href="/${song}">Next Song</a>
+                <a href="/${song}" align="right">Next Song</a>
             </div>
             <h3>${heading} </h3>
             <hr/>
