@@ -5,22 +5,53 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var song1 = {
-    title: 'Song-one',
-    heading: 'Song-one',
-    date: '8/2/2017',
-    content: `  <p> 
-                    When my time comes
-                    Forget the wrong that I've done
-                    Help me leave behind some
-                    Reasons to be missed
-                    Dont resent me
-                    And when you're feeling empty
-                    Keep me in your memory
-                    Leave out all the rest
-                </p>`
+var songs={
+    'song-one' : {
+        title: 'Song-one',
+        heading: 'Song-one',
+        date: '8/2/2017',
+        content: `  <p> 
+                        When my time comes
+                        Forget the wrong that I've done
+                        Help me leave behind some
+                        Reasons to be missed
+                        Dont resent me
+                        And when you're feeling empty
+                        Keep me in your memory
+                        Leave out all the rest
+                    </p>`
+    },
+    'song-two' : {
+        title: 'Song-two',
+        heading: 'Song-two',
+        date: '8/2/2017',
+        content: `  <p> 
+                        I remembered black skies
+                        The lightning all around me
+                        I remembered each flash
+                        As time began to blur
+                        Like a strtling sign
+                        The fate had finally found me
+                        And my voice was all i heard
+                        That i get what i deserved
+                    </p>`
+    },
+    'song-three' : {
+        title: 'Song-three',
+        heading: 'Song-three',
+        date: '8/2/2017',
+        content: `  <p> 
+                        This is the end
+                        Hold your breath and count to ten
+                        Feel the earth move and then
+                        Hear my heart burst again
+                        For this is the end
+                        Ive drowned and dreamt this moment
+                        So overdue I owe them
+                        Swept away, Im stolen
+                    </p>`
+    }
 };
-
 function createtemplate(data){
     var title=data.title;
     var date=data.date;
@@ -62,16 +93,11 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/song-one',function(req,res){
-   res.send(createtemplate(song1));
-});
-
-app.get('/song-two',function(req,res){
-   res.sendFile(path.join(__dirname, 'ui', 'song-two.html'));
-});
-
-app.get('/song-three',function(req,res){
-   res.sendFile(path.join(__dirname, 'ui', 'song-three.html'));
+app.get('/:songname',function(req,res){
+    //songname = song-one
+    //songs[songname] == {} content object for song-one
+    var songname = req.params.songname;
+   res.send(createtemplate(songs[songname]));
 });
 
 app.get('/ui/style.css', function (req, res) {
