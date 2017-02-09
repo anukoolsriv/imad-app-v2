@@ -80,7 +80,6 @@ var htmltemplate=`<html>
                 <a href="/">Home</a>
                 <a href="/${song}">Next Song</a>
             </div>
-            <hr/>
             <h3>${heading} </h3>
             <hr/>
             <div> ${date}</div>
