@@ -82,7 +82,7 @@ var htmltemplate=`<html>
         <div class="container">
             <div>
                 <a href="/${back}">Previous</a>
-                <a href="/${forward}" style="float:right;">Next</a>
+                <a href="/${forward}" style="float:right">Next</a>
             </div>
             <h3>${heading} </h3>
             <hr/>
