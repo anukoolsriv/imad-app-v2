@@ -81,8 +81,8 @@ var htmltemplate=`<html>
     <body>
         <div class="container">
             <div>
-                <a href="/${back}">Home</a>
-                <a href="/${forward}" style="text-align:right">Next Song</a>
+                <a href="/${back}">Previous</a>
+                <a href="/${forward}" style="float:right;">Next</a>
             </div>
             <h3>${heading} </h3>
             <hr/>
