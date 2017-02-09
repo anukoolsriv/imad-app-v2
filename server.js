@@ -82,7 +82,7 @@ var htmltemplate=`<html>
         <div class="container">
             <div>
                 <a href="/${back}">Home</a>
-                <a href="/${forward}">Next Song</a>
+                <a href="/${forward}" style="text-align:right">Next Song</a>
             </div>
             <h3>${heading} </h3>
             <hr/>
