@@ -10,6 +10,7 @@ var songs={
         title: 'Song-one',
         heading: 'Song-one',
         date: '8/2/2017',
+        name: '"Leave out all the rest"',
         content: `  <p> 
                         When my time comes
                         Forget the wrong that I've done
@@ -25,6 +26,7 @@ var songs={
         title: 'Song-two',
         heading: 'Song-two',
         date: '8/2/2017',
+        name: '"New Divide"',
         content: `  <p> 
                         I remembered black skies
                         The lightning all around me
@@ -40,6 +42,7 @@ var songs={
         title: 'Song-three',
         heading: 'Song-three',
         date: '8/2/2017',
+        name:'"Skyfall"',
         content: `  <p> 
                         This is the end
                         Hold your breath and count to ten
@@ -57,6 +60,7 @@ function createtemplate(data){
     var date=data.date;
     var heading = data.heading;
     var content = data.content;
+    var name = data.name;
     
 var htmltemplate=`<html>
     <head>
@@ -77,7 +81,7 @@ var htmltemplate=`<html>
             <hr/>
             <div> ${date}</div>
             <h5>
-                "Leave out all the rest"
+                ${name}
             </h5>
             <div>
                 ${content}
