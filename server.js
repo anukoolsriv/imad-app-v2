@@ -70,33 +70,34 @@ function createtemplate(data){
     var back = data.back;
     var forward = data.forward;
     
-var htmltemplate=`<html>
-    <head>
-        <title>
-           ${title}
-        </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link href="/ui/style.css" rel="stylesheet" />
-    </head>
-    <body>
-        <div class="container">
-            <div>
-                <a href="/${back}">Previous</a>
-                <a href="/${forward}" style="float:right">Next</a>
+    var htmltemplate=
+    `<html>
+        <head>
+            <title>
+               ${title}
+            </title>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <link href="/ui/style.css" rel="stylesheet" />
+        </head>
+        <body>
+            <div class="container">
+                <div>
+                    <a href="/${back}">Previous</a>
+                    <a href="/${forward}" style="float:right">Next</a>
+                </div>
+                <h3>${heading} </h3>
+                <hr/>
+                <div>${date}</div>
+                <h5>
+                    ${name}
+                </h5>
+                <div>
+                    ${content}
+                </div>
             </div>
-            <h3>${heading} </h3>
-            <hr/>
-            <div>${date}</div>
-            <h5>
-                ${name}
-            </h5>
-            <div>
-                ${content}
-            </div>
-        </div>
-    </body>
-</html>
-`;  
+        </body>
+    </html>
+    `;  
 return htmltemplate;
 }
 
