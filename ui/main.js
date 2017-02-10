@@ -13,8 +13,8 @@ marginl = 0;
 function right()
 {
     margingl = marginl+10;
-    img.style.marginLeft = marginLeft+'px';
+    img.style.marginLeft = marginl+'px';
 }
 img.onclick = function(){
-    var int = setInterval(right,100);
+    var interval = setInterval(right,100);
 };
