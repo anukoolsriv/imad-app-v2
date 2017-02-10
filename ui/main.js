@@ -9,6 +9,12 @@ element.innerHTML = 'this is the changed text';
 
 //move image
 var img = document.getElementById('madi');
+marginl = 0;
+function right()
+{
+    margingl = marginl+10;
+    img.style.marginLeft = marginLeft+'px';
+}
 img.onclick = function(){
-    img.style.marginLeft='100px';
+    var int = setInterval(right,100);
 };
