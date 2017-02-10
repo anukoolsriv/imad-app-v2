@@ -8,7 +8,7 @@ var element = document.getElementById('main-text');
 element.innerHTML = 'this is the changed text';
 
 //move image
-var i = document.getElementById('i1');
-i.onclick = function(){
-    i.style.marginLeft='100px';
+var img = document.getElementById('madi');
+img.onclick = function(){
+    img.style.marginLeft='100px';
 };
