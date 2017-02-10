@@ -12,7 +12,7 @@ var img = document.getElementById('madi');
 marginl = 0;
 function right()
 {
-    marginl = marginl+02;
+    marginl = marginl+2;
     img.style.marginLeft = marginl+'px';
 }
 img.onclick = function(){
