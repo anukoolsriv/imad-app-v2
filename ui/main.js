@@ -1,12 +1,12 @@
 console.log('Loaded!');
 
-// change in main.js file
+//change in main.js file
 
-/*var element = document.getElementById('main-text');
+var element = document.getElementById('main-text');
 
 // text changed
 element.innerHTML = 'this is the changed text';
-*/
+
 //move image
 var img = document.getElementById('madi');
 marginl = 0;
