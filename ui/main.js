@@ -21,3 +21,30 @@ button.onclick = function(){
   request.open('GET','http://anukoolsriv.imad.hasura-app.io/counter',true);
   request.send(null);
 };
+
+//submit name
+
+var nameIP = document.getElementById('name');
+var name = nameIP.value;
+
+var submit = document.getElementById('submitbtn');
+
+submit.onClick = function(){
+    //make a request
+    
+    
+    //capture list
+    var names=['name1','name2','name3'];
+    
+    var lisl='';
+    
+    for(var i=0;i<names.length;i++)
+    {
+        list+='<li>'+names[i]+'</li>';
+    }
+    
+    var  ul = document.getElementById('namelist');
+    ul.innerHTML=list;
+    
+    
+}
