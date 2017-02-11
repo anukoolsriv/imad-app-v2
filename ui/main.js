@@ -34,7 +34,7 @@ submit.onClick = function(){
     
     
     //capture list
-    var names=['name1','name2','name3'];
+    var names=['name1','name2','name3','name4'];
     
     var list='';
     
@@ -45,6 +45,4 @@ submit.onClick = function(){
     
     var  ul = document.getElementById('namelist');
     ul.innerHTML=list;
-    
-    
 };
