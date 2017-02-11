@@ -29,7 +29,7 @@ var name = nameIP.value;
 
 var submit = document.getElementById('submitbtn');
 
-submit.onClick = function(){
+submit.onclick = function(){
     //make a request
     
     
