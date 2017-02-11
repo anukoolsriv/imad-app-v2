@@ -47,4 +47,4 @@ submit.onClick = function(){
     ul.innerHTML=list;
     
     
-}
+};
