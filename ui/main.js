@@ -23,10 +23,6 @@ button.onclick = function(){
 };
 
 //submit name
-
-var nameIP = document.getElementById('name');
-var name = nameIP.value;
-
 var submit = document.getElementById('submitbtn');
 submit.onclick = function(){
     //make a request
@@ -52,6 +48,9 @@ submit.onclick = function(){
     }
   };
   // make a request
+    var nameIP = document.getElementById('name');
+    var name = nameIP.value;
+
   request.open('GET','http://anukoolsriv.imad.hasura-app.io/submit-name?name='+name,true);
   request.send(null);
 };
