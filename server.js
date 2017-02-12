@@ -113,15 +113,15 @@ app.get('/counter',function(req,res){
 }); 
 
 
-var allnames=[];
+var names=[];
 
 app.get('/submit-name/:name',function(req,res){
    /// get the name from request
    var name = req.query.name;
-   allnames.push(name);
+  names.push(name);
    
    //JSON : Javascript Object Notation
-   res.send(JSON.stringify(allnames));
+   res.send(JSON.stringify(names));
 });
 
 app.get('/:songname',function(req,res){
