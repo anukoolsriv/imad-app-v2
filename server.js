@@ -131,15 +131,15 @@ app.get('/ui/1a.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', '1a.png'));
 });
 
-var names=[];
+var allnames=[];
 
 app.get('/submit-name/:name',function(req,res){
    /// get the name from request
    var name = req.params.name;
-   names.push(name);
+   allnames.push(name);
    
    //JSON : Javascript Object Notation
-   res.send(JSON.stringify(names));
+   res.send(JSON.stringify(allnames));
 });
 
 
