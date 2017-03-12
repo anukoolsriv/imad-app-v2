@@ -91,7 +91,7 @@ function createtemplate(data){
                 </div>
                 <h3>${heading} </h3>
                 <hr/>
-                <div>${date}</div>
+                <div>${date.toDateString()}</div>
                 <h5>
                     ${name}
                 </h5>
