@@ -21,8 +21,6 @@ var songs={
         heading: 'Song-one',
         date: '8/2/2017',
         name: '"Leave out all the rest"',
-        back:'',
-        forward: 'song-two',
         content: `  <p> 
                         When my time comes
                         Forget the wrong that I've done
@@ -39,8 +37,6 @@ var songs={
         heading: 'Song-two',
         date: '8/2/2017',
         name: '"New Divide"',
-        back:'song-one',
-        forward: 'song-three',
         content: `  <p> 
                         I remembered black skies
                         The lightning all around me
@@ -57,8 +53,6 @@ var songs={
         heading: 'Song-three',
         date: '8/2/2017',
         name:'"Skyfall"',
-        back:'song-two',
-        forward: '',
         content: `  <p> 
                         This is the end
                         Hold your breath and count to ten
@@ -148,11 +142,24 @@ app.get('/submit-name',function(req,res){
    res.send(JSON.stringify(namelist));
 });
 
-app.get('/:songname',function(req,res){
+app.get('/songs/:songname',function(req,res){
     //songname = song-one
     //songs[songname] == {} content object for song-one
-    var songname = req.params.songname;
-   res.send(createtemplate(songs[songname]));
+    pool.query("ELECT * FROM SONG WHERE TITLE =" + req.params.songname,function(err,result){
+    if(err){
+        res.status(500).send(err.toString());
+    }    
+    else{
+        if(result.rows.length === 0)
+        {
+            res.status(404).send('Song not found');
+        }
+        else{
+            var SongData = result.rows[0];
+            res.send(createtemplate(SongData));
+        }
+    }
+    });
 });
 
 app.get('/ui/style.css', function (req, res) {
