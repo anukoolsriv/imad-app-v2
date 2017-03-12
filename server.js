@@ -145,7 +145,7 @@ app.get('/submit-name',function(req,res){
 app.get('/songs/:songname',function(req,res){
     //songname = song-one
     //songs[songname] == {} content object for song-one
-    pool.query("select * from song where title =" + req.params.songname,function(err,result){
+    pool.query("select * from song where title = '" + req.params.songname+"'",function(err,result){
     if(err){
         res.status(500).send(err.toString());
     }    
