@@ -36,8 +36,8 @@ function createtemplate(data){
         <body>
             <div class="container">
                 <div>
-                    <a href="/songs/${back}">Previous</a>
-                    <a href="/songs/${forward}" style="float:right">Next</a>
+                    <a href="/${back}">Previous</a>
+                    <a href="/${forward}" style="float:right">Next</a>
                 </div>
                 <h3>${heading} </h3>
                 <hr/>
