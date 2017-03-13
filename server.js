@@ -15,56 +15,6 @@ var config  = {
 var app = express();
 app.use(morgan('combined'));
 
-var songs={
-    'song-one' : {
-        title: 'song-one',
-        heading: 'Song-one',
-        date: '8/2/2017',
-        name: '"Leave out all the rest"',
-        content: `  <p> 
-                        When my time comes
-                        Forget the wrong that I've done
-                        Help me leave behind some
-                        Reasons to be missed
-                        Dont resent me
-                        And when you're feeling empty
-                        Keep me in your memory
-                        Leave out all the rest
-                    </p>`
-    },
-    'song-two' : {
-        title: 'song-two',
-        heading: 'Song-two',
-        date: '8/2/2017',
-        name: '"New Divide"',
-        content: `  <p> 
-                        I remembered black skies
-                        The lightning all around me
-                        I remembered each flash
-                        As time began to blur
-                        Like a strtling sign
-                        The fate had finally found me
-                        And my voice was all i heard
-                        That i get what i deserved
-                    </p>`
-    },
-    'song-three' : {
-        title: 'song-three',
-        heading: 'Song-three',
-        date: '8/2/2017',
-        name:'"Skyfall"',
-        content: `  <p> 
-                        This is the end
-                        Hold your breath and count to ten
-                        Feel the earth move and then
-                        Hear my heart burst again
-                        For this is the end
-                        Ive drowned and dreamt this moment
-                        So overdue I owe them
-                        Swept away, Im stolen
-                    </p>`
-    }
-};
 function createtemplate(data){
     var title=data.title;
     var date=data.date;
