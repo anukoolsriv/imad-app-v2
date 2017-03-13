@@ -17,7 +17,7 @@ app.use(morgan('combined'));
 
 var songs={
     'song-one' : {
-        title: 'Song-one',
+        title: 'song-one',
         heading: 'Song-one',
         date: '8/2/2017',
         name: '"Leave out all the rest"',
@@ -33,7 +33,7 @@ var songs={
                     </p>`
     },
     'song-two' : {
-        title: 'Song-two',
+        title: 'song-two',
         heading: 'Song-two',
         date: '8/2/2017',
         name: '"New Divide"',
@@ -49,7 +49,7 @@ var songs={
                     </p>`
     },
     'song-three' : {
-        title: 'Song-three',
+        title: 'song-three',
         heading: 'Song-three',
         date: '8/2/2017',
         name:'"Skyfall"',
@@ -91,7 +91,7 @@ function createtemplate(data){
                 </div>
                 <h3>${heading} </h3>
                 <hr/>
-                <div>${date.toDateString()}</div>
+                <div>${date.toDateString() }</div>
                 <h5>
                     ${name}
                 </h5>
@@ -145,7 +145,7 @@ app.get('/submit-name',function(req,res){
 app.get('/songs/:songname',function(req,res){
     //songname = song-one
     //songs[songname] == {} content object for song-one
-    pool.query("select * from song where title = '" + req.params.songname + "'",function(err,result){
+    pool.query("select * from song where title = $1",[req.params.songname],function(err,result){
     if(err){
         res.status(500).send(err.toString());
     }    
