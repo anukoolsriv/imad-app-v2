@@ -39,8 +39,8 @@ function createtemplate(data){
         <body>
             <div class="container">
                 <div>
-                    <a href="/${back}">Previous</a>
-                    <a href="/${forward}" style="float:right">Next</a>
+                    <a href="/songs/${back}">Previous</a>
+                    <a href="/songs/${forward}" style="float:right">Next</a>
                 </div>
                 <h3>${heading} </h3>
                 <hr/>
@@ -74,7 +74,7 @@ app.get('/hash/:input',function(req,res){
    res.send(hashedString);
 });
 
-app.post('/user/create-user',function(req,res){
+app.post('/create-user',function(req,res){
    //username,password
    //{'"username": "anukoolsriv","password":"password"'}
    //JSON request
