@@ -127,7 +127,7 @@ app.get('/submit-name',function(req,res){
    res.send(JSON.stringify(namelist));
 });
 
-app.get('/:songname',function(req,res){
+app.get('/songs/:songname',function(req,res){
     //songname = song-one
     //songs[songname] == {} content object for song-one
     pool.query("select * from song where title = $1",[req.params.songname],function(err,result){
