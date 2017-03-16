@@ -76,9 +76,9 @@ app.get('/hash/:input',function(req,res){
 
 app.post('/user/create-user',function(req,res){
    //username,password
-   //{'"username": "anukoolsriv","password":"password'}
+   //{'"username": "anukoolsriv","password":"password"'}
    //JSON request
-   var username = req.body.usernae;
+   var username = req.body.username;
    var password = req.body.password;
    var salt = crypto.randomBytes(128).toString('hex');
    var dbString = hash(password,salt);
