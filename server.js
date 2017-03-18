@@ -79,7 +79,7 @@ app.get('/hash/:input',function(req,res){
 
 app.post('/create-user', function (req, res) {
    // username, password
-   // {"username": "tanmai", "password": "password"}
+   // {"username": "anukoolsriv", "password": "password"}
    // JSON
    var username = req.body.username;
    var password = req.body.password;
@@ -142,9 +142,9 @@ app.get('/check-login', function (req, res) {
    }
 });
 
-app.get('/logout', function(req, res){
+app.get('/logout', function (req, res) {
    delete req.session.auth;
-   res.send('Logged out');
+   res.send('<html><body>Logged out!<br/><br/><a href="/">Back to home</a></body></html>');
 });
 
 var pool = new Pool(config);
