@@ -95,54 +95,58 @@ app.post('/create-user',function(req,res){
    });
 });
 
-app.post('/login',function(req, res){
+app.post('/login', function (req, res) {
    var username = req.body.username;
    var password = req.body.password;
-   console.log("1234");
-   pool.query('SELECT * FROM "user" WHERE username = $1', [username], function(err, result){
-       if(err){
-           res.status(500).send(err.toString());
-       }
-       else
-       {
-           if(result.rows.length === 0)
-           {
-               res.status(403).send('username/password is invalid');
-           }
-           else
-           {    // Password Matching
-               var dbString = result.rows[0].password;
-               var salt = dbString.split('$')[2];
-               var  hashedPassword = hash(password, salt); // creatting hash based on password submitted and original password
-               
-               if(hashedPassword === dbString){
-                        // set session
-                            req.session.auth = {userId: result.row[0].id};
-                            // set cookie with session id
-                            // internally, on server side, it maps the session id to an object
-                            //{auth: {userID}}
-                        res.send('Credentials are correct');
-               }
-               else{
-                   res.send(403).send('username/password is invalid');
-               }
-           }
-       }    
+   
+   pool.query('SELECT * FROM "user" WHERE username = $1', [username], function (err, result) {
+      if (err) {
+          res.status(500).send(err.toString());
+      } else {
+          if (result.rows.length === 0) {
+              res.status(403).send('username/password is invalid');
+          } else {
+              // Match the password
+              var dbString = result.rows[0].password;
+              var salt = dbString.split('$')[2];
+              var hashedPassword = hash(password, salt); // Creating a hash based on the password submitted and the original salt
+              if (hashedPassword === dbString) {
+                
+                // Set the session
+                req.session.auth = {userId: result.rows[0].id};
+                // set cookie with a session id
+                // internally, on the server side, it maps the session id to an object
+                // { auth: {userId }}
+                
+                res.send('credentials correct!');
+                
+              } else {
+                res.status(403).send('username/password is invalid');
+              }
+          }
+      }
    });
 });
 
-app.get('/check-login', function(req, res){
-   if(req.session && req.session.auth && req.session.auth.userId){
-       res.send('You are successfully logged in:' + req.session.auth.userId.toString());
+app.get('/check-login', function (req, res) {
+   if (req.session && req.session.auth && req.session.auth.userId) {
+       // Load the user object
+       pool.query('SELECT * FROM "user" WHERE id = $1', [req.session.auth.userId], function (err, result) {
+           if (err) {
+              res.status(500).send(err.toString());
+           } else {
+              res.send(result.rows[0].username);    
+           }
+       });
    } else {
-       res.send('You are not logged in');
+       res.status(400).send('You are not logged in');
    }
 });
 
 var pool = new Pool(config);
 
 app.get('/test-db',function(req,res){
-   //make a request
+   // make a request
    // return a response
     pool.query('SELECT * FROM TEST',function(err,result){
        if(err){
@@ -153,7 +157,6 @@ app.get('/test-db',function(req,res){
        }
     });
 });
-
 
 var counter=0;
 
