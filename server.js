@@ -107,7 +107,7 @@ app.post('/login',function(req, res){
        {
            if(result.rows.length === 0)
            {
-               res.send(403).send('username/password is invalid');
+               res.status(403).send('username/password is invalid');
            }
            else
            {    // Password Matching
